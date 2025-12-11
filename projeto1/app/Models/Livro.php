@@ -36,7 +36,7 @@ class Livro extends Model
         'autor_id',
     ];
 
-    
+
 
     public function genero()
     {
@@ -46,5 +46,10 @@ class Livro extends Model
     public function autor()
     {
         return $this->belongsTo(Autor::class);
+    }
+
+    public function getRouteKeyName()
+    {
+        return 'id';
     }
 }
