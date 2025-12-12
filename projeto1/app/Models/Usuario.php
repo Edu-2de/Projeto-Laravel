@@ -46,7 +46,7 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
         'senha' => 'hashed',
-        'telefone' => 'string',
+        'telefone' => 'encrypted',
         'endereco' => 'string',
         'ativo' => 'boolean',
     ];
@@ -54,6 +54,11 @@ class User extends Authenticatable
     public function getAuthPassword()
     {
         return $this->senha;
+    }
+
+    public function getRouteKeyName()
+    {
+        return 'id';
     }
 
 
